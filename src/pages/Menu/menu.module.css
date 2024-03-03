@@ -1,0 +1,12 @@
+.head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    flex-wrap: wrap;
+}

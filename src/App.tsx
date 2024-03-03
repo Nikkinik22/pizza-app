@@ -1,10 +1,9 @@
 import Button from './components/Button/Button.tsx';
-import {MouseEvent, useState} from 'react';
+import {MouseEvent} from 'react';
 import Input from './components/Input/Input.tsx';
 
 
 function App() {
-	const [counter, setCounter] = useState<number>(0);
 
 	const addCounter = (e: MouseEvent) => {
 		console.log(e);
