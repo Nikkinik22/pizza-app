@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 function ProductCard({...props}: ProductCardProps) {
+
 	return (
 		<Link to={`/product/${props.id}`} className={styles['link']}>
 			<div className={styles['card']}>
