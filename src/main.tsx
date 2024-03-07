@@ -10,6 +10,10 @@ import axios from 'axios';
 import {PREFIX} from './helpers/API.ts';
 import styles from './pages/Product/Product.module.css';
 import {TailSpin} from 'react-loader-spinner';
+import {AuthLayout} from './layuot/Auth/AuthLayout.tsx';
+import {Login} from './pages/Login/Login.tsx';
+import {Register} from './pages/Register/Register.tsx';
+import {RequireAuth} from './helpers/RequireAuth.tsx';
 
 
 const Menu = lazy(() => import('./pages/Menu/Menu'));
@@ -18,7 +22,7 @@ const Menu = lazy(() => import('./pages/Menu/Menu'));
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Layuot/>,
+		element: <RequireAuth><Layuot/></RequireAuth>,
 		children: [
 			{
 				path: '/',
@@ -44,18 +48,21 @@ const router = createBrowserRouter([
 							}, 2000);
 						})
 					});
-					// return defer({
-					// 	data: axios.get(`${PREFIX}/products/${params.id}`).then(data => data)
-					// });
-
-					// await new Promise<void>((resolve) => {
-					// 	setTimeout(() => {
-					// 		resolve();
-					// 	}, 2000);
-					// });
-					// const {data} = await axios.get(`${PREFIX}/products/${params.id}`);
-					// return data;
 				}
+			}
+		]
+	},
+	{
+		path: '/auth',
+		element: <AuthLayout/>,
+		children: [
+			{
+				path: 'login',
+				element: <Login/>
+			},
+			{
+				path: 'register',
+				element: <Register/>
 			}
 		]
 	},

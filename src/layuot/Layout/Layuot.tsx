@@ -1,9 +1,16 @@
-import {NavLink, Outlet} from 'react-router-dom';
+import {NavLink, Outlet, useNavigate} from 'react-router-dom';
 import styles from './Layuot.module.css';
 import Button from '../../components/Button/Button.tsx';
 import cn from 'classnames';
 
 export function Layuot() {
+
+	const navigate = useNavigate();
+
+	const logout = () => {
+		localStorage.removeItem('jwt');
+		navigate('/auth/login');
+	};
 
 
 	return <div className={styles['layout']}>
@@ -25,7 +32,7 @@ export function Layuot() {
 					<img src='/cart-icon.svg' alt=""/>
                     Корзина</NavLink>
 			</div>
-			<Button className={styles['exit']}>
+			<Button className={styles['exit']} onClick={logout}>
 				<img src='/exx.svg' alt=""/>
                 Выйти
 			</Button>
@@ -35,3 +42,5 @@ export function Layuot() {
 		</div>
 	</div>;
 }
+
+

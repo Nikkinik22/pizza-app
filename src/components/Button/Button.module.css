@@ -18,6 +18,7 @@
     font-size: 15px;
     text-transform: uppercase;
     padding: 20px 60px;
+    filter: drop-shadow(0px 10px 40px rgba(122, 129, 190, 0.16));
 }
 
 .accent {
@@ -27,3 +28,5 @@
 .accent:hover {
     background: var(--primary-hover-color)
 }
+
+
